@@ -1,0 +1,25 @@
+{
+  "name": "aixbox-picgo-assets1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aixboxi/picgo_assets1.git"
+  },
+  "keywords": [
+    "图床1"
+  ],
+  "author": "aixbox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aixboxi/picgo_assets1/issues"
+  },
+  "homepage": "https://github.com/Aixboxi/picgo_assets1#readme"
+}
