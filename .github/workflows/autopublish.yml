@@ -1,19 +1,37 @@
-name: Node.js Package
-# 监测图床分支，2020年10月后github新建仓库默认分支改为main，记得更改
+name: npm-publish
+
 on:
   push:
     branches:
       - main
-
+permissions:
+  contents: write
+  
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    # Clone 仓库
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          node-version: "12.x"
+          ref: main
+      # 安装 Node.js    
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+        
+      # 发布 NPM 包
+      - name: Publish Package
+        run: |
+          git config --global user.email "aixbox4068@gmail.com"
+          git config --global user.name "Aixboxi"
+          npm version patch
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Push
+        run: |
+          git push
